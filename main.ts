@@ -2,7 +2,9 @@
 import express from "npm:express@4.18.2";
 import mongoose from "npm:mongoose@8.0.0";
 import {load} from "https://deno.land/std@0.204.0/dotenv/mod.ts";
-import getPerson from "./resolvers/getPerson.ts";
+import getTardis from "./resolvers/getTardis.ts";
+import postTardis from "./resolvers/postTardis.ts";
+import updateTardis from "./resolvers/updateTardis.ts";
 
 const env : Record<string,string> = await load();
 const MONGO_URL = env.MONGO_URL || Deno.env.get("MONGO_URL");
@@ -22,8 +24,12 @@ const app = express();
 app.use(express.json());
 
 app
-.get("/api/get/person/:id", getPerson )
+.post("/api/tardis", postTardis)
+.get("/api/tardis/:id", getTardis )
+.put("/api/tardis/:id", updateTardis);
 
 app.listen(3000 , () => {
-  console.log("El servidor esta corriendo en el puerto 3000.")
+  console.log("Server running in port 3000.")
 });
+
+

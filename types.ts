@@ -1,18 +1,22 @@
+import mongoose from "npm:mongoose@8.0.0";
+
 export type Tardis = {
-    dimensions : Array<Dimension>,
-    camuflage : string,
-    numOfRegen : number,
-    year : number
+    dimensions : mongoose.Schema.Types.ObjectId[],
+    camouflage : string,
+    regenerationNumber : number,
+    currentYear : number
 }
 
 export type Dimension = {
-    planetas : Planet[]
+    name : string,
+    planets : mongoose.Schema.Types.ObjectId[]
 }
 
 export type Planet = {
-    persons : Person[]
+    name : string,
+    people : mongoose.Schema.Types.ObjectId[]
 }
 
 export type Person = {
-    name : string
+    name : string,
 }

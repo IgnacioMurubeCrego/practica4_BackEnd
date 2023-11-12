@@ -4,9 +4,9 @@ import { Person } from "../types.ts";
 const Schema : typeof mongoose.Schema = mongoose.Schema;
 
 const personSchema = new Schema({
-    name : {type : String, required : true}
+    name : {type : String, required : true},
 },
-{ timestamps : true},   
+{ timestamps : true },   
 );
 
 export type PersonModelType = mongoose.Document & Person;
