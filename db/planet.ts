@@ -1,7 +1,6 @@
 import mongoose from "npm:mongoose@8.0.0";
 import { Planet } from "../types.ts";
 import { PersonModel } from "./person.ts";
-import { DimensionModel } from "./dimension.ts";
 
 const Schema : typeof mongoose.Schema = mongoose.Schema;
 
